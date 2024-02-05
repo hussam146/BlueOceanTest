@@ -30,36 +30,15 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
+    stage('Validate') {
       steps {
-        sh '''
-
-
-
-
-
-
-
-
-echo $(date)
-
-
-            
-
-
-
-
-
-
-
-
-'''
+        input(message: 'Are you sure you want to deploy?', ok: 'Yes')
       }
     }
 
-    stage('Validate') {
+    stage('Deploy') {
       steps {
-        input(message: 'Are You sure that you want to deploy', ok: 'Yes')
+        sh 'echo $(date)'
       }
     }
 
